@@ -1,13 +1,16 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-14T03:06:36.902Z"
+    "lastTouchedAt": "2026-03-15T06:37:38.847Z"
   },
   "wizard": {
-    "lastRunAt": "2026-03-14T03:06:35.241Z",
+    "lastRunAt": "2026-03-14T03:22:36.062Z",
     "lastRunVersion": "2026.3.11",
-    "lastRunCommand": "onboard",
+    "lastRunCommand": "doctor",
     "lastRunMode": "local"
+  },
+  "browser": {
+    "noSandbox": true
   },
   "auth": {
     "profiles": {
@@ -40,6 +43,41 @@
   "session": {
     "dmScope": "per-channel-peer"
   },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": [
+            "hooks/bootstrap/AGENTS.md",
+            "hooks/bootstrap/TOOLS.md"
+          ]
+        }
+      }
+    }
+  },
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "debounceMs": 0,
+      "mediaMaxMb": 50
+    },
+    "discord": {
+      "enabled": true,
+      "token": "${DISCORD_BOT_TOKEN}",
+      "groupPolicy": "allowlist",
+      "streaming": "off",
+      "dmPolicy": "pairing",
+      "guilds": {
+        "1482017859889660045": {
+          "requireMention": false
+        }
+      }
+    }
+  },
   "gateway": {
     "port": 18789,
     "mode": "local",
@@ -58,18 +96,11 @@
       "nodeManager": "npm"
     }
   },
-  "channels": {
-    "discord": {
-      "enabled": true,
-      "token": "${DISCORD_BOT_TOKEN}",
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist"
-    }
-  },
   "plugins": {
     "allow": [
       "discord",
-      "usage-tracker"
+      "usage-tracker",
+      "whatsapp"
     ],
     "load": {
       "paths": [
@@ -82,21 +113,10 @@
       },
       "usage-tracker": {
         "enabled": true
-      }
-    }
-  },
-  "hooks": {
-    "internal": {
-      "entries": {
-        "bootstrap-extra-files": {
-          "enabled": true,
-          "paths": [
-            "hooks/bootstrap/AGENTS.md",
-            "hooks/bootstrap/TOOLS.md"
-          ]
-        }
       },
-      "enabled": true
+      "whatsapp": {
+        "enabled": true
+      }
     }
   }
 }
