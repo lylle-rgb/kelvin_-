@@ -23,10 +23,10 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-3-pro-preview"
+        "primary": "google/gemini-3-flash-preview"
       },
       "models": {
-        "google/gemini-3-pro-preview": {}
+        "google/gemini-3-flash-preview": {}
       },
       "workspace": "/data/.openclaw/workspace"
     },
@@ -34,12 +34,26 @@
       {
         "id": "main",
         "default": true,
-        "name": "Main Agent",
+        "name": "Kelvin",
         "workspace": "/data/.openclaw/workspace",
         "agentDir": "/data/.openclaw/agents/main/agent",
         "model": {
           "primary": "google/gemini-3-flash-preview"
         }
+      },
+      {
+        "id": "yael",
+        "name": "Yael",
+        "default": false,
+        "workspace": "/data/.openclaw/workspace-yael",
+        "agentDir": "/data/.openclaw/agents/yael/agent"
+      },
+      {
+        "id": "noah",
+        "name": "Noah",
+        "default": false,
+        "workspace": "/data/.openclaw/workspace-noah",
+        "agentDir": "/data/.openclaw/agents/noah/agent"
       }
     ]
   },
