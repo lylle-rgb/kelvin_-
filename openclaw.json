@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.11",
-    "lastTouchedAt": "2026-03-15T06:37:38.847Z"
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-16T02:23:12.165Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-14T03:22:36.062Z",
@@ -23,10 +23,11 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-3-flash-preview"
+        "primary": "google/gemini-flash-latest"
       },
       "models": {
-        "google/gemini-3-flash-preview": {}
+        "google/gemini-3-flash-preview": {},
+        "google/gemini-flash-latest": {}
       },
       "workspace": "/data/.openclaw/workspace"
     },
@@ -40,25 +41,17 @@
         "model": {
           "primary": "google/gemini-3-flash-preview"
         }
-      },
-      {
-        "id": "yael",
-        "name": "Yael",
-        "default": false,
-        "workspace": "/data/.openclaw/workspace-yael",
-        "agentDir": "/data/.openclaw/agents/yael/agent"
-      },
-      {
-        "id": "noah",
-        "name": "Noah",
-        "default": false,
-        "workspace": "/data/.openclaw/workspace-noah",
-        "agentDir": "/data/.openclaw/agents/noah/agent"
       }
     ]
   },
   "tools": {
-    "profile": "full"
+    "profile": "full",
+    "exec": {
+      "host": "node",
+      "security": "allowlist",
+      "ask": "on-miss",
+      "node": "c84632138502fdbaf5c49c2a0f5f1f55cf65823642871cd04ca0105302dd0be9"
+    }
   },
   "commands": {
     "native": "auto",
@@ -108,10 +101,18 @@
     "port": 18789,
     "mode": "local",
     "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "https://openclaw-railway-template-production-cdaf.up.railway.app"
+      ]
+    },
     "auth": {
       "mode": "token",
       "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
+    "trustedProxies": [
+      "127.0.0.1"
+    ],
     "tailscale": {
       "mode": "off",
       "resetOnExit": false
