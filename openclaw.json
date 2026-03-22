@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-16T02:23:12.165Z"
+    "lastTouchedAt": "2026-03-16T06:36:25.969Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-14T03:22:36.062Z",
@@ -23,12 +23,18 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "google/gemini-2.5-flash"
+        "primary": "google/gemini-3-flash-preview"
       },
       "models": {
-        "google/gemini-2.5-flash": {}
+        "google/gemini-3-flash-preview": {}
       },
-      "workspace": "/data/.openclaw/workspace"
+      "workspace": "/data/workspace",
+      "compaction": {
+        "model": "google/gemini-2.5-flash"
+      },
+      "subagents": {
+        "model": "google/gemini-2.5-flash"
+      }
     },
     "list": [
       {
@@ -38,7 +44,7 @@
         "workspace": "/data/.openclaw/workspace",
         "agentDir": "/data/.openclaw/agents/main/agent",
         "model": {
-          "primary": "google/gemini-3-flash-preview"
+          "primary": "google/gemini-2.5-flash"
         }
       }
     ]
@@ -46,10 +52,9 @@
   "tools": {
     "profile": "full",
     "exec": {
-      "host": "node",
-      "security": "allowlist",
-      "ask": "on-miss",
-      "node": "c84632138502fdbaf5c49c2a0f5f1f55cf65823642871cd04ca0105302dd0be9"
+      "host": "gateway",
+      "security": "full",
+      "ask": "on-miss"
     }
   },
   "commands": {
@@ -79,7 +84,7 @@
     "whatsapp": {
       "enabled": true,
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
+      "groupPolicy": "open",
       "debounceMs": 0,
       "mediaMaxMb": 50
     },
@@ -89,6 +94,9 @@
       "groupPolicy": "allowlist",
       "streaming": "off",
       "dmPolicy": "pairing",
+      "allowFrom": [
+        "806381685389787206"
+      ],
       "guilds": {
         "1482017859889660045": {
           "requireMention": false
